@@ -1,20 +1,28 @@
 let count = 0;
 
-const CURRENT_NUMBER = document.getElementById('currentNumber');
+function verifyNumber() {
+	if (count < 0) {
+		currentNumber.style.color = 'red';
+		return;
+	}
+	currentNumber.style.color = 'black';
+}
 
 function increment() {
 	count++;
-	CURRENT_NUMBER.innerHTML = count;
-}
- 
-function decrement() {
-	count--;
-	CURRENT_NUMBER.innerHTML = count;
-	if (count < 0) {
-		currentNumber.style.color = 'red';
-	}
+	currentNumber.innerHTML = count;
+	verifyNumber();
 }
 
-function test() {
-	kdowkdpo;
+function decrement() {
+	count--;
+	currentNumber.innerHTML = count;
+	verifyNumber();
 }
+
+const currentNumber = document.getElementById('currentNumber');
+const plus = document.querySelector('.adicionar');
+const minus = document.querySelector('.subtrair');
+
+plus.addEventListener('click', increment);
+minus.addEventListener('click', decrement);
